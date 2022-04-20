@@ -1,0 +1,14 @@
+.social__body {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    display: flex;
+
+    * {
+        margin-inline: 5px;
+    }
+    svg {
+        text-decoration: none;
+        color: var(--txtColor);
+    }
+}
