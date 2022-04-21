@@ -2,7 +2,7 @@ import { mdiGithub, mdiChevronDoubleDown } from '@mdi/js';
 import Icon from '@mdi/react';
 import '../style/Home.scss';
 
-export const Home = () => {
+export const About = () => {
     return (
         <div className="home__body">
             <div className="main__text">Welcome to my website!</div>

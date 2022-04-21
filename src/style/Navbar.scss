@@ -4,7 +4,7 @@
 }
 
 .navbar__body {
-    position: absolute;
+    position: sticky;
     width: var(--navWidth);
     height: 4rem;
     left: 50%;

@@ -21,7 +21,8 @@ function ThemeProvider(props: { children: ReactNode; className: string }) {
 
     const containerStyle = {
         cursor: 'pointer',
-        position: 'absolute',
+        float: 'right',
+        position: 'sticky',
         right: '1rem',
         top: '1rem',
     } as React.CSSProperties;
