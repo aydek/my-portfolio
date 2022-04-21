@@ -1,11 +1,13 @@
 .social__body {
-    position: sticky;
+    position: absolute;
     left: 1rem;
     top: 1rem;
     display: flex;
-
+    width: max-content;
+    z-index: 99;
     * {
         margin-inline: 5px;
+        cursor: pointer;
     }
     svg {
         text-decoration: none;

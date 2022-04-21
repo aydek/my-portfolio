@@ -1,11 +1,9 @@
-import { mdiAt, mdiCheck, mdiFileAccount, mdiHome, mdiInformation, mdiThoughtBubble } from '@mdi/js';
+import { mdiAt, mdiCheck, mdiFileAccount, mdiHome, mdiInformation } from '@mdi/js';
 import Icon from '@mdi/react';
-import { useState } from 'react';
+import React from 'react';
 import '../style/Navbar.scss';
 
-export const Navbar = () => {
-    const [index, setIndex] = useState(2);
-
+export const Navbar = ({ index, setIndex }: { index: number; setIndex: React.Dispatch<React.SetStateAction<number>> }) => {
     const setNavIndex = (i: number) => () => {
         setIndex(i);
     };
@@ -24,11 +22,11 @@ export const Navbar = () => {
                 <Icon path={mdiHome} size={1} />
             </div>
 
-            <div className={`nav__item ${index === 4 ? 'active' : null}`} onClick={setNavIndex(4)}>
+            <div className={`nav__item ${index === 3 ? 'active' : null}`} onClick={setNavIndex(3)}>
                 <p>About me</p>
                 <Icon path={mdiInformation} size={1} />
             </div>
-            <div className={`nav__item ${index === 3 ? 'active' : null}`} onClick={setNavIndex(3)}>
+            <div className={`nav__item ${index === 4 ? 'active' : null}`} onClick={setNavIndex(4)}>
                 <p>Contacts</p>
                 <Icon path={mdiAt} size={1} />
             </div>

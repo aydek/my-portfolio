@@ -27,3 +27,34 @@ code {
 
     --highlightColor: #00b6b6;
 }
+
+@keyframes hideWindow {
+    0% {
+        top: 0px;
+    }
+    50% {
+        transform: scale(0.8);
+        opacity: 0.5;
+        top: 0px;
+    }
+    100% {
+        opacity: 0;
+        top: -100vh;
+    }
+}
+
+@keyframes showWindow {
+    0% {
+        top: 200vh;
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+        top: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        top: 0;
+    }
+}

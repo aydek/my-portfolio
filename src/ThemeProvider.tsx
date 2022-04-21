@@ -21,10 +21,11 @@ function ThemeProvider(props: { children: ReactNode; className: string }) {
 
     const containerStyle = {
         cursor: 'pointer',
-        float: 'right',
-        position: 'sticky',
+        position: 'absolute',
         right: '1rem',
         top: '1rem',
+        width: 'max-content',
+        zIndex: '99',
     } as React.CSSProperties;
 
     const handleClick = () => {
