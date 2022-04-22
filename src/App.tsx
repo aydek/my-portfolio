@@ -7,29 +7,32 @@ import { About } from './components/About';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import useIsMounted from './hooks/isMounted';
 
+let timeout = Date.now();
+
 function App() {
-    const [navIndex, setNavIndex] = useState(2);
-    let fixVal = 2;
+    const [navIndex, setNavIndex] = useState(0);
+
+    let fixVal = 0;
     let touchstartY = 0;
     let touchendY = 0;
 
     const isMounted = useIsMounted();
 
     useEffect(() => {
-        window.addEventListener('mousewheel', handleKeyDown);
-        window.addEventListener('touchstart', handleTouchStart);
-        window.addEventListener('touchend', handleTouchEnd);
+        window.addEventListener('wheel', handleScroll);
+        // window.addEventListener('touchstart', handleTouchStart);
+        // window.addEventListener('touchend', handleTouchEnd);
 
         return () => {
-            window.removeEventListener('mousewheel', handleKeyDown);
-            window.removeEventListener('touchstart', handleTouchStart);
-            window.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('wheel', handleScroll);
+            // window.removeEventListener('touchstart', handleTouchStart);
+            // window.removeEventListener('touchend', handleTouchEnd);
         };
-    }, []);
+    }, [navIndex]);
 
-    const handleKeyDown = (ev: any, touch = false) => {
+    const handleScroll = (ev: any, touch = false) => {
+        if (timeout > Date.now()) return;
         if (touch) {
-            console.log('touch');
             if (touchstartY > touchendY) {
                 if (fixVal === 2) fixVal = 3;
             } else {
@@ -38,11 +41,19 @@ function App() {
             setNavIndex(fixVal);
             return;
         }
+
         if (ev.deltaY > 0) {
-            if (fixVal === 2) fixVal = 3;
+            let current = navIndex;
+            current = current + 1;
+            if (current > 4) current = 0;
+            setNavIndex(current);
         } else {
-            if (fixVal === 3) fixVal = 2;
+            let current = navIndex;
+            current = current - 1;
+            if (current < 0) current = 4;
+            setNavIndex(current);
         }
+        timeout = Date.now() + 1000;
     };
 
     const handleTouchStart = (ev: TouchEvent) => {
@@ -51,16 +62,14 @@ function App() {
 
     const handleTouchEnd = (ev: TouchEvent) => {
         touchendY = ev.changedTouches[0].screenX;
-        handleKeyDown({ deltaY: 0 }, true);
+        handleScroll({ deltaY: 0 }, true);
     };
-
-    useEffect(() => {}, [navIndex]);
 
     return (
         <ThemeProvider className="App">
             <Social />
-            <Home setIndex={setNavIndex} className={navIndex === 2 ? 'show' : 'hidden'} />
-            <About className={isMounted ? (navIndex === 3 ? 'show' : 'hidden') : ''} />
+            <Home setIndex={setNavIndex} className={navIndex === 0 ? 'show' : 'hidden'} />
+            <About className={isMounted ? (navIndex === 1 ? 'show' : 'hidden') : ''} />
             <Navbar index={navIndex} setIndex={setNavIndex} />
         </ThemeProvider>
     );
