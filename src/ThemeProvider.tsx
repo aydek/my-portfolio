@@ -1,6 +1,5 @@
-import { mdiThemeLightDark } from '@mdi/js';
-import Icon from '@mdi/react';
 import { ReactNode, useEffect, useState } from 'react';
+import { CircleHalf } from 'styled-icons/bootstrap';
 
 function ThemeProvider(props: { children: ReactNode; className: string }) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -35,7 +34,7 @@ function ThemeProvider(props: { children: ReactNode; className: string }) {
     return (
         <div className={props.className} data-theme={theme}>
             <div onClick={handleClick} style={containerStyle}>
-                <Icon style={iconStyle} path={mdiThemeLightDark} size={1} />
+                <CircleHalf style={iconStyle} size="1.5rem" />
             </div>
             {props.children}
         </div>

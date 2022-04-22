@@ -1,5 +1,3 @@
-import { mdiGithub, mdiChevronDoubleDown } from '@mdi/js';
-import Icon from '@mdi/react';
 import '../style/About.scss';
 
 export const About = ({ className }: { className: string }) => {
@@ -9,7 +7,6 @@ export const About = ({ className }: { className: string }) => {
 
             <div className="footer__text">
                 <p>Scroll down or click on navigation items to see more</p>
-                <Icon path={mdiChevronDoubleDown} size={5} />
             </div>
         </div>
     );
