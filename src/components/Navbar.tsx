@@ -10,8 +10,8 @@ export const Navbar = ({ index, setIndex }: { index: number; setIndex: React.Dis
     return (
         <div className="navbar__body">
             <div className={`nav__item ${index === 0 ? 'active' : null}`} onClick={setNavIndex(0)}>
-                <p>Resume</p>
-                <Description size={26} />
+                <p>Contacts</p>
+                <Contacts size={26} />
             </div>
             <div className={`nav__item ${index === 1 ? 'active' : null}`} onClick={setNavIndex(1)}>
                 <p>My work</p>
@@ -27,8 +27,8 @@ export const Navbar = ({ index, setIndex }: { index: number; setIndex: React.Dis
                 <Info size={26} />
             </div>
             <div className={`nav__item ${index === 4 ? 'active' : null}`} onClick={setNavIndex(4)}>
-                <p>Contacts</p>
-                <Contacts size={26} />
+                <p>Resume</p>
+                <Description size={26} />
             </div>
             <div className="indicator"></div>
         </div>

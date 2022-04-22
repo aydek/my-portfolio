@@ -10,24 +10,48 @@ import useIsMounted from './hooks/isMounted';
 function App() {
     const [navIndex, setNavIndex] = useState(2);
     let fixVal = 2;
+    let touchstartY = 0;
+    let touchendY = 0;
 
     const isMounted = useIsMounted();
 
     useEffect(() => {
         window.addEventListener('mousewheel', handleKeyDown);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
 
         return () => {
             window.removeEventListener('mousewheel', handleKeyDown);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
         };
     }, []);
 
-    const handleKeyDown = (ev: any) => {
+    const handleKeyDown = (ev: any, touch = false) => {
+        if (touch) {
+            console.log('touch');
+            if (touchstartY > touchendY) {
+                if (fixVal === 2) fixVal = 3;
+            } else {
+                if (fixVal === 3) fixVal = 2;
+            }
+            setNavIndex(fixVal);
+            return;
+        }
         if (ev.deltaY > 0) {
             if (fixVal === 2) fixVal = 3;
         } else {
             if (fixVal === 3) fixVal = 2;
         }
-        setNavIndex(fixVal);
+    };
+
+    const handleTouchStart = (ev: TouchEvent) => {
+        touchstartY = ev.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (ev: TouchEvent) => {
+        touchendY = ev.changedTouches[0].screenX;
+        handleKeyDown({ deltaY: 0 }, true);
     };
 
     useEffect(() => {}, [navIndex]);
