@@ -1,7 +1,8 @@
-import { ChevronDoubleDownIcon, CodeIcon } from '@heroicons/react/solid';
+import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
 import React from 'react';
 
 import '../style/Home.scss';
+import { Github } from './svg/Github';
 
 export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.SetStateAction<number>>; className: string }) => {
     const handleClick = () => {
@@ -14,7 +15,7 @@ export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.S
             <div className="main__text">Welcome to my website!</div>
             <div className="sub__text">My name is Kestutis and I am a developer...</div>
             <a href="https://github.com/aydek/my-portfolio" className="link__button">
-                <CodeIcon width={24} height={24} />
+                <Github />
                 <p>Source code for this website</p>
             </a>
             <div className="footer__text" onClick={handleClick}>
