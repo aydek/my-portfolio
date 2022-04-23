@@ -3,11 +3,14 @@ import React from 'react';
 
 import '../style/Home.scss';
 import { Github } from './svg/Github';
+import { ReactLogo } from './svg/ReactLogo';
+import { Sass } from './svg/Sass';
+import { Typescript } from './svg/Typescript';
+import { Vite } from './svg/Vite';
 
 export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.SetStateAction<number>>; className: string }) => {
     const handleClick = () => {
-        console.log('?');
-        setIndex(3);
+        setIndex(1);
     };
 
     return (
@@ -18,6 +21,16 @@ export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.S
                 <Github />
                 <p>Source code for this website</p>
             </a>
+            <div className="providers">
+                <p>Build with</p>
+                <div>
+                    <ReactLogo />
+                    <Vite />
+                    <Typescript />
+                    <Sass />
+                </div>
+            </div>
+
             <div className="footer__text" onClick={handleClick}>
                 <p>Scroll down or click on navigation items to see more</p>
                 <ChevronDoubleDownIcon width={50} height={50} />
