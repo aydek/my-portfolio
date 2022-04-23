@@ -8,39 +8,30 @@ import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import useIsMounted from './hooks/isMounted';
 
 let timeout = Date.now();
+let touchstart = 0;
+let touchend = 0;
 
 function App() {
     const [navIndex, setNavIndex] = useState(0);
-
-    let fixVal = 0;
-    let touchstartY = 0;
-    let touchendY = 0;
 
     const isMounted = useIsMounted();
 
     useEffect(() => {
         window.addEventListener('wheel', handleScroll);
-        // window.addEventListener('touchstart', handleTouchStart);
-        // window.addEventListener('touchend', handleTouchEnd);
+        window.addEventListener('touchstart', handleTouchStart, { passive: false });
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener('touchend', handleTouchEnd, { passive: false });
 
         return () => {
             window.removeEventListener('wheel', handleScroll);
-            // window.removeEventListener('touchstart', handleTouchStart);
-            // window.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
         };
     }, [navIndex]);
 
-    const handleScroll = (ev: any, touch = false) => {
+    const handleScroll = (ev: any) => {
         if (timeout > Date.now()) return;
-        if (touch) {
-            if (touchstartY > touchendY) {
-                if (fixVal === 2) fixVal = 3;
-            } else {
-                if (fixVal === 3) fixVal = 2;
-            }
-            setNavIndex(fixVal);
-            return;
-        }
 
         if (ev.deltaY > 0) {
             let current = navIndex;
@@ -57,12 +48,22 @@ function App() {
     };
 
     const handleTouchStart = (ev: TouchEvent) => {
-        touchstartY = ev.changedTouches[0].screenX;
+        touchstart = ev.changedTouches[0].screenY;
+        ev.preventDefault();
+    };
+
+    const handleTouchMove = (ev: TouchEvent) => {
+        ev.preventDefault();
     };
 
     const handleTouchEnd = (ev: TouchEvent) => {
-        touchendY = ev.changedTouches[0].screenX;
-        handleScroll({ deltaY: 0 }, true);
+        touchend = ev.changedTouches[0].screenY;
+        if (touchstart - touchend < -150) {
+            handleScroll({ deltaY: -1 });
+        } else if (touchstart - touchend > 150) {
+            handleScroll({ deltaY: 1 });
+        }
+        ev.preventDefault();
     };
 
     return (

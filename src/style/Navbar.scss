@@ -6,9 +6,9 @@
 .navbar__body {
     position: absolute;
     width: var(--navWidth);
-    height: 7vh;
+    height: 60px;
     left: 50%;
-    bottom: 1%;
+    bottom: 10px;
     transform: translateX(-50%);
     display: flex;
     justify-content: space-around;
@@ -21,6 +21,7 @@
         width: 100%;
         border-radius: 0px;
         bottom: 0px;
+        height: 60px;
     }
 }
 
