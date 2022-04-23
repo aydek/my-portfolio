@@ -68,7 +68,6 @@ function App() {
 
     return (
         <ThemeProvider className="App">
-            <Social />
             <Home setIndex={setNavIndex} className={navIndex === 0 ? 'show' : 'hidden'} />
             <About className={isMounted ? (navIndex === 1 ? 'show' : 'hidden') : ''} />
             <Navbar index={navIndex} setIndex={setNavIndex} />
