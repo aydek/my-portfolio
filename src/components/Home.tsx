@@ -2,11 +2,11 @@ import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
 import React from 'react';
 
 import '../style/Home.scss';
-import { Github } from './svg/Github';
-import { ReactLogo } from './svg/ReactLogo';
-import { Sass } from './svg/Sass';
-import { Typescript } from './svg/Typescript';
-import { Vite } from './svg/Vite';
+import { Github } from './icons/Github';
+import { ReactLogo } from './icons/ReactLogo';
+import { Sass } from './icons/Sass';
+import { Typescript } from './icons/Typescript';
+import { Vite } from './icons/Vite';
 
 export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.SetStateAction<number>>; className: string }) => {
     const handleClick = () => {
