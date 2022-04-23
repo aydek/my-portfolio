@@ -1,15 +1,15 @@
-import { Mail } from 'styled-icons/material';
-import { Github } from 'styled-icons/simple-icons';
+import { MailIcon } from '@heroicons/react/solid';
 import '../style/Social.scss';
+import { Github } from './svg/Github';
 
 export const Social = () => {
     return (
         <div className="social__body">
             <a href="https://github.com/aydek">
-                <Github size={26} />
+                <Github />
             </a>
             <div>
-                <Mail size={26} />
+                <MailIcon width={24} height={24} />
             </div>
         </div>
     );

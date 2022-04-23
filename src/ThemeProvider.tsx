@@ -1,5 +1,5 @@
+import { MoonIcon } from '@heroicons/react/solid';
 import { ReactNode, useEffect, useState } from 'react';
-import { CircleHalf } from 'styled-icons/bootstrap';
 
 function ThemeProvider(props: { children: ReactNode; className: string }) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -34,7 +34,7 @@ function ThemeProvider(props: { children: ReactNode; className: string }) {
     return (
         <div className={props.className} data-theme={theme}>
             <div onClick={handleClick} style={containerStyle}>
-                <CircleHalf style={iconStyle} size="1.5rem" />
+                <MoonIcon style={iconStyle} width={26} height={26} />
             </div>
             {props.children}
         </div>
