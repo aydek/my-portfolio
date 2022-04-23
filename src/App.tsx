@@ -49,7 +49,6 @@ function App() {
 
     const handleTouchStart = (ev: TouchEvent) => {
         touchstart = ev.changedTouches[0].screenY;
-        ev.preventDefault();
     };
 
     const handleTouchMove = (ev: TouchEvent) => {
@@ -63,7 +62,6 @@ function App() {
         } else if (touchstart - touchend > 150) {
             handleScroll({ deltaY: 1 });
         }
-        ev.preventDefault();
     };
 
     return (
