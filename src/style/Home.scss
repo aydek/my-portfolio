@@ -71,18 +71,31 @@
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
-    padding: 10px;
+
     p {
         text-align: center;
     }
+    path {
+        transform: translateY(0px);
+        transition: 200ms;
+        transition-delay: calc(var(--order) * 50ms);
+    }
+
     &:hover {
         cursor: pointer;
 
-        animation: footerHover 300ms ease forwards;
+        path {
+            transform: translateY(5px);
+            transition: 300ms;
+            transition-delay: calc(var(--order) * 100ms);
+        }
     }
 }
 
 @keyframes footerHover {
+    from {
+        transform: translateY(0px);
+    }
     to {
         transform: translateY(5px);
     }

@@ -1,7 +1,5 @@
-import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
-import React from 'react';
-
 import '../style/Home.scss';
+import { ArrowDown } from './icons/ArrowDown';
 import { Github } from './icons/Github';
 import { ReactLogo } from './icons/ReactLogo';
 import { Sass } from './icons/Sass';
@@ -33,7 +31,7 @@ export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.S
 
             <div className="footer__text" onClick={handleClick}>
                 <p>Scroll down or click on navigation items to see more</p>
-                <ChevronDoubleDownIcon width={50} height={50} />
+                <ArrowDown />
             </div>
         </div>
     );

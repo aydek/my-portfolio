@@ -27,7 +27,7 @@ export const Navbar = ({ index, setIndex }: { index: number; setIndex: React.Dis
                 <InformationCircleIcon width={24} height={24} />
             </div>
             <div className={`nav__item ${index === 3 ? 'active' : null}`} onClick={setNavIndex(3)}>
-                <p>Resume</p>
+                <p>Résumé</p>
                 <DocumentTextIcon width={24} height={24} />
             </div>
             <div className="indicator"></div>
