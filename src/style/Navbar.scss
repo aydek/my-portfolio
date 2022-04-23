@@ -56,16 +56,18 @@
         z-index: 10;
     }
 
-    &:hover {
-        cursor: pointer;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            cursor: pointer;
 
-        & svg {
-            transform: scale(1.1);
-        }
+            & svg {
+                transform: scale(1.1);
+            }
 
-        & p {
-            opacity: 0.5;
-            margin-top: 60px;
+            & p {
+                opacity: 0.5;
+                margin-top: 60px;
+            }
         }
     }
 }
