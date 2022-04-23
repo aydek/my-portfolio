@@ -11,7 +11,6 @@
     opacity: 0;
     &.show {
         animation: showWindow 1s forwards;
-
         animation-delay: 500ms;
     }
 
@@ -35,14 +34,15 @@
     border-radius: 5px;
     font-size: clamp(0.1rem, 3vw + 0.1rem, 0.7rem);
     text-decoration: none;
-    color: var(--txtColors);
+    color: var(--txtColor);
+
     svg {
         margin-right: 10px;
     }
     cursor: pointer;
     user-select: none;
-
-    box-shadow: 0px 0px 10px var(--txtColor);
+    box-shadow: 0px 0px 10px var(--highlightColor);
+    outline: 1px solid var(--highlightColor);
     &:hover {
         animation: buttonHover 300ms ease forwards;
     }
@@ -50,7 +50,7 @@
 
 @keyframes buttonHover {
     to {
-        transform: translateY(-5px);
+        box-shadow: none;
     }
 }
 
@@ -85,7 +85,7 @@
     position: relative;
 
     font-family: 'Source Code Pro', monospace;
-    text-shadow: 0 0px 5px var(--txtColor);
+    text-shadow: 0 0px 2px var(--txtColor);
     white-space: nowrap;
 
     &::before {
@@ -96,7 +96,8 @@
         left: 0;
         bottom: 0;
         background-color: var(--bgColor);
-        animation: typewriter 4s steps(22) forwards;
+
+        animation: typewriter 6s steps(22) forwards;
     }
 
     &::after {
@@ -108,7 +109,8 @@
         bottom: 0;
         width: 0.125rem;
         background-color: var(--txtColor);
-        animation: typewriter 4s steps(22) forwards, blink 500ms steps(24) infinite;
+
+        animation: typewriter 6s steps(22) forwards, blink 700ms steps(24) infinite;
     }
 }
 
