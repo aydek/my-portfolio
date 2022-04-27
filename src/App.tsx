@@ -4,6 +4,7 @@ import { Home } from './components/Home';
 import { About } from './components/About';
 import { useEffect, useState } from 'react';
 import useIsMounted from './hooks/isMounted';
+import { Background } from './components/Background';
 
 let timeout = Date.now();
 let touchstart = 0;
@@ -64,6 +65,7 @@ function App() {
 
     return (
         <ThemeProvider className="App">
+            <Background />
             <Home setIndex={setNavIndex} className={navIndex === 0 ? 'show' : 'hidden'} />
             <About className={isMounted ? (navIndex === 1 ? 'show' : 'hidden') : ''} />
             <Navbar index={navIndex} setIndex={setNavIndex} />

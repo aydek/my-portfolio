@@ -5,6 +5,8 @@
     --navColor: #e0e0e0;
 
     --highlightColor: #008b8b;
+
+    --bgOpacity: 0.5;
 }
 
 [data-theme='dark'] {
@@ -14,4 +16,6 @@
     --navColor: #333;
 
     --highlightColor: #00b6b6;
+
+    --bgOpacity: 0.3;
 }

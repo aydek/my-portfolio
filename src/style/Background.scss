@@ -1,0 +1,61 @@
+.background {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: normal;
+    background-color: red;
+}
+
+@function randomNum($min, $max) {
+    $rand: random();
+    $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+    @return $randomNum;
+}
+
+$dotsizes: (200px, 200px, 300px);
+
+$particleSize: 300px;
+$animationDuration: 216s;
+$amount: 20;
+
+.background span {
+    opacity: var(--bgOpacity);
+    width: $particleSize;
+    height: $particleSize;
+    border-radius: $particleSize;
+    backface-visibility: hidden;
+    position: absolute;
+    animation-name: move;
+    animation-duration: $animationDuration;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    $colors: (#00b6b6, #0049b6, #00b689, #006161);
+
+    @for $i from 1 through $amount {
+        $d: nth($dotsizes, random(length($dotsizes)));
+
+        &:nth-child(#{$i}) {
+            color: nth($colors, random(length($colors)));
+            top: random(100) * 1%;
+            left: random(100) * 1%;
+            width: $d + 1px;
+            height: $d + 1px;
+            border-radius: $d + 1px;
+
+            animation-duration: calc((random($animationDuration * 10) / 10) * 1s + 10s);
+            animation-delay: calc(random(($animationDuration + 10s) * 10) / 10 * -1s);
+            transform-origin: calc((random(50) - 25) * 1vw) (random(50) - 25) * 1vh;
+            $blurRadius: 0;
+            $x: if(random() > 0.5, -1, 1);
+            box-shadow: ($particleSize * 2 * $x) 0 $blurRadius currentColor;
+        }
+    }
+}
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
