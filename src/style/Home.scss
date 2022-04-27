@@ -24,6 +24,9 @@
     font-size: clamp(0.1rem, 3vw + 0.1rem, 2rem);
     font-family: 'Source Code Pro', monospace;
     position: relative;
+    @media (max-height: 700px) {
+        margin-top: 20px;
+    }
 }
 
 .link__button {
@@ -47,6 +50,10 @@
     &:hover {
         animation: buttonHover 300ms ease forwards;
     }
+
+    @media (max-height: 700px) {
+        margin-top: 20px;
+    }
 }
 
 @keyframes buttonHover {
@@ -61,6 +68,10 @@
 
     svg {
         margin-inline: 10px;
+    }
+
+    @media (max-height: 700px) {
+        margin-top: 10px;
     }
 }
 
@@ -91,6 +102,13 @@
             transition-delay: calc(var(--order) * 100ms);
         }
     }
+
+    @media (max-height: 700px) {
+        bottom: 0px;
+        path {
+            display: none;
+        }
+    }
 }
 
 @keyframes footerHover {
@@ -119,7 +137,7 @@
         bottom: 0;
         width: 0.125rem;
         background-color: var(--txtColor);
-        border-radius: 10px;
+
         animation: blink 700ms steps(24) infinite;
     }
 }
