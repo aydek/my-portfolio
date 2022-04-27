@@ -111,35 +111,16 @@
     text-shadow: 0 0px 2px var(--txtColor);
     white-space: nowrap;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: var(--bgColor);
-
-        animation: typewriter 6s steps(22) forwards;
-    }
-
     &::after {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
         width: 0.125rem;
         background-color: var(--txtColor);
-
-        animation: typewriter 6s steps(22) forwards, blink 700ms steps(24) infinite;
-    }
-}
-
-@keyframes typewriter {
-    to {
-        left: 100%;
+        border-radius: 10px;
+        animation: blink 700ms steps(24) infinite;
     }
 }
 
