@@ -19,8 +19,6 @@ export const Home = ({ setIndex, className }: { setIndex: React.Dispatch<React.S
     useEffect(() => {
         setTimeout(() => {
             if (headIndex >= headText.length - 1) return;
-            console.log(head);
-            console.log(headIndex);
             if (isMounted) headIndex = headIndex + 1;
             setHead(head + headText[headIndex]);
         }, 300);
