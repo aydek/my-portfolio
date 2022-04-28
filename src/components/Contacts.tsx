@@ -6,9 +6,14 @@ export const Contacts = ({ className }: { className: string }) => {
         <div className={`contacts__body ${className}`}>
             <div className="sub__text">Fancy contact me?</div>
             <p>See my contacts below:</p>
-            <a href='https://github.com/aydek' className="contacts__button__group">
-                <Github />
-                <p>Github profile /aydek</p>
+            <a href="https://github.com/aydek" className="contacts__button__group">
+                <div className="button__left">
+                    <Github />
+                </div>
+
+                <p>Github profile</p>
+
+                <div className="button__right">/aydek</div>
             </a>
         </div>
     );
