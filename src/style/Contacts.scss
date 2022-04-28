@@ -32,6 +32,10 @@
     box-shadow: 0px 0px 10px var(--highlightColor);
     border: 1px solid var(--highlightColor);
 
+    &:hover {
+        animation: buttonHover 300ms ease forwards;
+    }
+
     .button__left {
         width: 50px;
         height: 100%;
