@@ -51,7 +51,7 @@ export const Contacts = ({ className }: { className: string }) => {
                         <Github />
                     </div>
 
-                    <p>Github profile</p>
+                    <p>Github</p>
 
                     <div className="button__right">/aydek</div>
                 </a>
@@ -69,7 +69,7 @@ export const Contacts = ({ className }: { className: string }) => {
                         <Facebook />
                     </div>
 
-                    <p>Facebook profile</p>
+                    <p>Facebook</p>
 
                     <div className="button__right">Kestutis Duoba</div>
                 </a>
